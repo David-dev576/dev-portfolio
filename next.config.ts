@@ -1,9 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export', // Obligatoire pour GitHub Pages
-  basePath: '/dev-portfolio', // ⚠️ Le nom de ton dépôt GitHub
+import type { NextConfig } from 'next';
+
+const nextConfig: NextConfig = {
+  output: 'export', 
+  basePath: '/dev-portfolio',
   images: {
-    unoptimized: true, // Obligatoire car GitHub Pages n'optimise pas les images
+    unoptimized: true,
   },
 };
 
