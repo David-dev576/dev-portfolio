@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Section, SectionHeader } from '@/components/ui/Section';
 import { Reveal } from '@/components/ui/Reveal';
 
@@ -18,9 +17,9 @@ const pillars = [
 ];
 
 // 📸 Photo professionnelle de David
-// Fichier attendu : public/images/david.webp
 const hasPhoto = true;
-const photoSrc = '/images/david.webp';
+// On ajoute le nom du dépôt (/dev-portfolio) pour que GitHub Pages trouve l'image
+const photoSrc = '/dev-portfolio/images/david.webp';
 
 export function About() {
   return (
@@ -34,11 +33,12 @@ export function About() {
         <Reveal className="md:col-span-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border bg-bg-card">
             {hasPhoto ? (
-             <img
-  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${photoSrc}`}
-  alt="Photo de David, développeur web"
-  className="absolute inset-0 h-full w-full object-cover"
-/>
+              // Utilisation d'une balise <img> classique pour GitHub Pages
+              <img
+                src={photoSrc}
+                alt="Photo de David, développeur web"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             ) : (
               <>
                 <div className="absolute inset-0 grid-bg opacity-60" aria-hidden />
