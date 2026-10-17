@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  output: 'export', // Obligatoire pour GitHub Pages
+  basePath: '/dev-portfolio', // ⚠️ Le nom de ton dépôt GitHub
   images: {
-    formats: ['image/avif', 'image/webp'],
+    unoptimized: true, // Obligatoire car GitHub Pages n'optimise pas les images
   },
 };
 
