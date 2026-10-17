@@ -34,14 +34,11 @@ export function About() {
         <Reveal className="md:col-span-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border bg-bg-card">
             {hasPhoto ? (
-              <Image
-                src={photoSrc}
-                alt="Photo de David, développeur web"
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover"
-                priority
-              />
+             <img
+  src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${photoSrc}`}
+  alt="Photo de David, développeur web"
+  className="absolute inset-0 h-full w-full object-cover"
+/>
             ) : (
               <>
                 <div className="absolute inset-0 grid-bg opacity-60" aria-hidden />
