@@ -8,12 +8,12 @@ import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
 const links = [
-  { href: '/#accueil', label: 'Accueil' },
-  { href: '/#a-propos', label: 'À propos' },
-  { href: '/#competences', label: 'Compétences' },
-  { href: '/projets', label: 'Projets' },
-  { href: '/#parcours', label: 'Parcours' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '#accueil', label: 'Accueil' },
+  { href: '#a-propos', label: 'À propos' },
+  { href: '#competences', label: 'Compétences' },
+  { href: '/dev-portfolio/projets', label: 'Projets' }, // Lien vers la vraie page
+  { href: '#parcours', label: 'Parcours' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 export function Navbar() {
@@ -44,26 +44,32 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight"
-          aria-label="Retour à l'accueil"
-        >
+        <a href="#accueil" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight" aria-label="Retour à l'accueil">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent-primary to-accent-secondary text-sm font-bold text-white">
             D
           </span>
           <span className="hidden sm:inline">David</span>
-        </Link>
+        </a>
 
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-sm text-fg-secondary transition-colors hover:text-fg-primary"
-              >
-                {link.label}
-              </Link>
+              {/* On utilise <a> pour les ancres et <Link> pour la page /projets */}
+              {link.href.startsWith('#') ? (
+                <a
+                  href={link.href}
+                  className="text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  href={link.href}
+                  className="text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+                >
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
@@ -71,7 +77,8 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <div className="hidden md:block">
-            <Button href="/#contact" variant="primary">
+            {/* Ici, on pointe vers l'ancre contact */}
+            <Button href="#contact" variant="primary">
               Me contacter
             </Button>
           </div>
@@ -92,17 +99,27 @@ export function Navbar() {
           <ul className="flex flex-col px-6 py-4">
             {links.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-3 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
-                >
-                  {link.label}
-                </Link>
+                {link.href.startsWith('#') ? (
+                  <a
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="block py-3 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className="block py-3 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+                  >
+                    {link.label}
+                  </Link>
+                )}
               </li>
             ))}
             <li className="pt-2">
-              <Button href="/#contact" variant="primary" className="w-full">
+              <Button href="#contact" variant="primary" className="w-full">
                 Me contacter
               </Button>
             </li>
