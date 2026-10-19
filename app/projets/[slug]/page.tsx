@@ -46,12 +46,12 @@ export default async function ProjectPage({
 
   return (
     <Section className="pt-32">
-      <Link
-        href="/projets"
-        className="mb-8 inline-flex items-center gap-2 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
-      >
-        <ArrowLeft size={14} /> Tous les projets
-      </Link>
+    <Link
+  href="/projets"
+  className="mb-8 inline-flex items-center gap-2 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+>
+  <ArrowLeft size={14} /> Tous les projets
+</Link>
 
       <div className="mb-4 flex flex-wrap items-center gap-3">
         <Badge>{project.category}</Badge>

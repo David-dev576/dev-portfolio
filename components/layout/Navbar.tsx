@@ -8,12 +8,12 @@ import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
 const links = [
-  { href: '#accueil', label: 'Accueil' },
-  { href: '#a-propos', label: 'À propos' },
-  { href: '#competences', label: 'Compétences' },
-  { href: '/projets', label: 'Projets' }, // 👈 Enlevé /dev-portfolio
-  { href: '#parcours', label: 'Parcours' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#accueil', label: 'Accueil' },
+  { href: '/#a-propos', label: 'À propos' },
+  { href: '/#competences', label: 'Compétences' },
+  { href: '/projets', label: 'Projets' },
+  { href: '/#parcours', label: 'Parcours' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export function Navbar() {
@@ -44,18 +44,17 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-        <a href="#accueil" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight" aria-label="Retour à l'accueil">
+        <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight" aria-label="Retour à l'accueil">
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent-primary to-accent-secondary text-sm font-bold text-white">
             D
           </span>
           <span className="hidden sm:inline">David</span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.href}>
-              {/* On utilise <a> pour les ancres et <Link> pour la page /projets */}
-              {link.href.startsWith('#') ? (
+              {link.href.startsWith('/#') ? (
                 <a
                   href={link.href}
                   className="text-sm text-fg-secondary transition-colors hover:text-fg-primary"
@@ -77,8 +76,7 @@ export function Navbar() {
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <div className="hidden md:block">
-            {/* Ici, on pointe vers l'ancre contact */}
-            <Button href="#contact" variant="primary">
+            <Button href="/#contact" variant="primary">
               Me contacter
             </Button>
           </div>
@@ -99,7 +97,7 @@ export function Navbar() {
           <ul className="flex flex-col px-6 py-4">
             {links.map((link) => (
               <li key={link.href}>
-                {link.href.startsWith('#') ? (
+                {link.href.startsWith('/#') ? (
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
@@ -119,7 +117,7 @@ export function Navbar() {
               </li>
             ))}
             <li className="pt-2">
-              <Button href="#contact" variant="primary" className="w-full">
+              <Button href="/#contact" variant="primary" className="w-full">
                 Me contacter
               </Button>
             </li>

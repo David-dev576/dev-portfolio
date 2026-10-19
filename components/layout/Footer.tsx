@@ -17,12 +17,12 @@ export function Footer() {
       <div className="mx-auto w-full max-w-6xl px-6 py-12">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <a href="#accueil" className="flex items-center gap-2 font-display text-lg font-semibold">
+            <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold">
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent-primary to-accent-secondary text-sm font-bold text-white">
                 D
               </span>
               David
-            </a>
+            </Link>
             <p className="mt-3 max-w-xs text-sm text-fg-secondary">
               {site.tagline}
             </p>
@@ -34,23 +34,22 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#accueil" className="text-fg-secondary hover:text-fg-primary">
+                <a href="/#accueil" className="text-fg-secondary hover:text-fg-primary">
                   Accueil
                 </a>
               </li>
               <li>
-                <a href="#a-propos" className="text-fg-secondary hover:text-fg-primary">
+                <a href="/#a-propos" className="text-fg-secondary hover:text-fg-primary">
                   À propos
                 </a>
               </li>
               <li>
-                {/* 👇 Le chemin est maintenant juste "/projets" */}
                 <Link href="/projets" className="text-fg-secondary hover:text-fg-primary">
                   Projets
                 </Link>
               </li>
               <li>
-                <a href="#contact" className="text-fg-secondary hover:text-fg-primary">
+                <a href="/#contact" className="text-fg-secondary hover:text-fg-primary">
                   Contact
                 </a>
               </li>
