@@ -44,7 +44,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/dev-portfolio/projets" className="text-fg-secondary hover:text-fg-primary">
+                {/* 👇 Le chemin est maintenant juste "/projets" */}
+                <Link href="/projets" className="text-fg-secondary hover:text-fg-primary">
                   Projets
                 </Link>
               </li>

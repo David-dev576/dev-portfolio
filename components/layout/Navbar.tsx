@@ -11,7 +11,7 @@ const links = [
   { href: '#accueil', label: 'Accueil' },
   { href: '#a-propos', label: 'À propos' },
   { href: '#competences', label: 'Compétences' },
-  { href: '/dev-portfolio/projets', label: 'Projets' }, // Lien vers la vraie page
+  { href: '/projets', label: 'Projets' }, // 👈 Enlevé /dev-portfolio
   { href: '#parcours', label: 'Parcours' },
   { href: '#contact', label: 'Contact' },
 ];
