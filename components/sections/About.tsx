@@ -16,53 +16,22 @@ const pillars = [
   },
 ];
 
-// 📸 Photo professionnelle de David
-const hasPhoto = true;
-// On ajoute le nom du dépôt (/dev-portfolio) pour que GitHub Pages trouve l'image
-const photoSrc = '/dev-portfolio/images/david.webp';
-
 export function About() {
   return (
     <Section id="a-propos">
       <SectionHeader
-        eyebrow="À propos"
-        title="Un développeur curieux, créatif et rigoureux."
+        eyebrow="ABOUT"
+        title="A curious, creative and rigorous developer."
       />
 
-      <div className="grid gap-8 md:grid-cols-12">
-        <Reveal className="md:col-span-4">
-          <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border bg-bg-card">
-            {hasPhoto ? (
-              // Utilisation d'une balise <img> classique pour GitHub Pages
-              <img
-                src={photoSrc}
-                alt="Photo de David, développeur web"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            ) : (
-              <>
-                <div className="absolute inset-0 grid-bg opacity-60" aria-hidden />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display text-7xl font-bold gradient-text">
-                    D.
-                  </span>
-                </div>
-              </>
-            )}
-          </div>
-          <p className="mt-4 text-xs text-fg-secondary">
-            David — Développeur Web
-          </p>
-        </Reveal>
-
-        <div className="space-y-8 md:col-span-8">
-          {pillars.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.05}>
-              <h3 className="font-display text-xl font-semibold">{p.title}</h3>
-              <p className="mt-2 text-fg-secondary">{p.text}</p>
-            </Reveal>
-          ))}
-        </div>
+      {/* La grille a été retirée pour laisser le texte prendre toute la largeur (max-w-3xl pour la lisibilité) */}
+      <div className="max-w-3xl space-y-12 mt-12">
+        {pillars.map((p, i) => (
+          <Reveal key={p.title} delay={i * 0.05}>
+            <h3 className="font-display text-2xl font-semibold mb-3">{p.title}</h3>
+            <p className="text-lg text-fg-secondary leading-relaxed">{p.text}</p>
+          </Reveal>
+        ))}
       </div>
     </Section>
   );
