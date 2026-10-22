@@ -1,7 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { Reveal } from '@/components/ui/Reveal';
 
 export function Hero() {
@@ -9,7 +8,7 @@ export function Hero() {
     <section id="accueil" className="relative min-h-screen flex items-center px-6 pt-20">
       <div className="mx-auto w-full max-w-6xl grid md:grid-cols-2 gap-12 items-center">
         
-        {/* Texte de gauche */}
+        {/* Left Text */}
         <div className="flex flex-col items-start">
           <Reveal>
             <p className="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-accent-primary">
@@ -29,21 +28,27 @@ export function Hero() {
 
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-md text-base text-fg-secondary">
-              Je suis David, développeur web congolais basé au Burundi. Je conçois des interfaces modernes et performantes.
+              I'm David, a Congolese web developer based in Burundi. I build modern, accessible, and performant web applications.
             </p>
           </Reveal>
 
-          <Reveal delay={0.3}>
+          <Reveal delay={0.3} className="mt-10 flex flex-wrap items-center gap-6">
             <a 
               href="/dev-portfolio/projets"
-              className="mt-10 inline-flex items-center gap-2 border-b border-fg-primary pb-1 text-sm font-medium hover:text-accent-primary hover:border-accent-primary transition-colors"
+              className="inline-flex items-center gap-2 border-b border-fg-primary pb-1 text-sm font-medium hover:text-accent-primary hover:border-accent-primary transition-colors"
             >
-              Voir mes projets <ArrowRight size={16} />
+              View my work <ArrowRight size={16} />
+            </a>
+            <a 
+              href="/dev-portfolio/cv.pdf"
+              className="inline-flex items-center gap-2 text-sm text-fg-secondary hover:text-fg-primary transition-colors"
+            >
+              <Download size={16} /> Download CV
             </a>
           </Reveal>
         </div>
 
-        {/* Image de droite (remplace l'image par la tienne) */}
+        {/* Right Image */}
         <Reveal delay={0.2} className="relative aspect-[4/5] w-full max-w-md mx-auto md:ml-auto">
           <div className="absolute inset-0 bg-bg-secondary border border-border rounded-sm overflow-hidden">
              {/* 📸 METS TON IMAGE ICI : public/images/david-hero.webp */}

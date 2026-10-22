@@ -3,16 +3,16 @@ import { Reveal } from '@/components/ui/Reveal';
 
 const pillars = [
   {
-    title: 'Qui je suis',
-    text: "Je m'appelle David, développeur web congolais basé au Burundi. Je construis des applications web en mettant l'accent sur la clarté, l'accessibilité et la performance.",
+    title: 'Who I am',
+    text: "I'm David, a Congolese web developer based in Burundi. I build web applications focusing on clarity, accessibility, and performance.",
   },
   {
-    title: "Ce qui m'intéresse",
-    text: "Le développement web me passionne parce qu'il permet de transformer une idée en un produit concret, utilisable et utile. J'aime autant le frontend que le backend.",
+    title: 'What interests me',
+    text: "Web development fascinates me because it allows turning an idea into a concrete, usable, and useful product. I love both frontend and backend.",
   },
   {
-    title: 'Comment je travaille',
-    text: "Je commence par comprendre le besoin, puis je conçois une solution simple, maintenable et évolutive. Je préfère la qualité à la quantité.",
+    title: 'How I work',
+    text: "I start by understanding the need, then I design a simple, maintainable, and scalable solution. I prefer quality over quantity.",
   },
 ];
 

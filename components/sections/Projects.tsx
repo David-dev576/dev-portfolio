@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ExternalLink, Code2, ArrowRight } from 'lucide-react';
 import { Reveal } from '@/components/ui/Reveal';
 import { projects, type ProjectCategory } from '@/data/projects';
@@ -26,24 +25,24 @@ export function Projects() {
   );
 
   return (
-    <section id="projets" className="bg-[#0a0a0a] py-24 px-6 text-white border-t border-white/10">
+    <section id="projets" className="bg-bg-primary py-24 px-6 border-t border-border">
       <div className="mx-auto w-full max-w-6xl">
         
-        {/* Header avec Titre et Bouton "All Projects" */}
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
             Selected Work
           </h2>
           <Link
             href="/projets"
-            className="group inline-flex items-center gap-2 border border-white/20 px-5 py-3 text-xs font-mono uppercase tracking-widest text-white/70 hover:text-white hover:border-white transition-colors"
+            className="group inline-flex items-center gap-2 border border-border px-5 py-3 text-xs font-mono uppercase tracking-widest text-fg-secondary hover:text-fg-primary hover:border-fg-primary transition-colors"
           >
             All Projects
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
-        {/* Filtres (Optionnel, on les garde discrets) */}
+        {/* Filtres */}
         <div className="mb-10 flex flex-wrap gap-4">
           {filters.map((f) => (
             <button
@@ -51,8 +50,8 @@ export function Projects() {
               onClick={() => setActive(f)}
               className={`text-xs font-mono uppercase tracking-widest pb-1 border-b transition-colors ${
                 active === f
-                  ? 'border-white text-white'
-                  : 'border-transparent text-white/40 hover:text-white/80'
+                  ? 'border-fg-primary text-fg-primary'
+                  : 'border-transparent text-fg-secondary hover:text-fg-primary'
               }`}
             >
               {f}
@@ -60,56 +59,54 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Grille de Projets */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+        {/* Grille */}
+        <div className="grid gap-8 md:grid-cols-2">
           {filtered.map((p, i) => (
             <Reveal key={p.slug} delay={i * 0.05}>
-              <div className="group flex flex-col border border-white/10 bg-[#111] transition-colors hover:border-white/30">
+              <div className="group flex flex-col border border-border bg-bg-secondary transition-colors hover:border-fg-secondary">
                 
-                {/* Image du projet (ou placeholder sombre) */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/50 border-b border-white/10">
-                   {/* Si tu as une image, décommente les lignes ci-dessous */}
-                   <Image
+                {/* Image */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-card border-b border-border">
+                   <img
                      src={p.image}
                      alt={p.title}
-                     fill
-                     className="object-cover opacity-80 transition-opacity group-hover:opacity-100"
+                     className="object-cover w-full h-full opacity-80 transition-opacity group-hover:opacity-100"
                    />
                 </div>
 
-                {/* Contenu texte */}
+                {/* Content */}
                 <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-display text-2xl font-semibold text-white mb-3">
+                    <h3 className="font-display text-2xl font-semibold mb-3">
                       {p.title}
                     </h3>
-                    <p className="text-sm text-white/60 leading-relaxed mb-6">
+                    <p className="text-sm text-fg-secondary leading-relaxed mb-6">
                       {p.shortDescription}
                     </p>
                   </div>
 
                   <div>
-                    {/* Badges Technologies */}
+                    {/* Badges */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {p.technologies.map((t) => (
                         <span
                           key={t}
-                          className="rounded-full border border-white/20 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-white/70"
+                          className="rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-fg-secondary"
                         >
                           {t}
                         </span>
                       ))}
                     </div>
 
-                    {/* Liens Live / Code */}
+                    {/* Links */}
                     <div className="flex items-center gap-6 mt-auto">
                       {p.demo && (
-                        <a href={p.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-white/70 hover:text-white transition-colors">
+                        <a href={p.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-fg-secondary hover:text-fg-primary transition-colors">
                           <ExternalLink size={14} /> Live
                         </a>
                       )}
                       {p.github && (
-                        <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-white/70 hover:text-white transition-colors">
+                        <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs text-fg-secondary hover:text-fg-primary transition-colors">
                           <Code2 size={14} /> Code
                         </a>
                       )}
