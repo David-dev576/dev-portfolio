@@ -51,24 +51,16 @@ export function Navbar() {
           <span className="hidden sm:inline">David</span>
         </Link>
 
+        {/* Menu Desktop */}
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.href}>
-              {link.href.startsWith('/#') ? (
-                <a
-                  href={link.href}
-                  className="text-sm text-fg-secondary transition-colors hover:text-fg-primary"
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  href={link.href}
-                  className="text-sm text-fg-secondary transition-colors hover:text-fg-primary"
-                >
-                  {link.label}
-                </Link>
-              )}
+              <Link
+                href={link.href}
+                className="text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+              >
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>
@@ -92,28 +84,19 @@ export function Navbar() {
         </div>
       </nav>
 
+      {/* Menu Mobile */}
       {open && (
         <div className="border-t border-border bg-bg-primary md:hidden">
           <ul className="flex flex-col px-6 py-4">
             {links.map((link) => (
               <li key={link.href}>
-                {link.href.startsWith('/#') ? (
-                  <a
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block py-3 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <Link
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="block py-3 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
-                  >
-                    {link.label}
-                  </Link>
-                )}
+                <Link
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block py-3 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+                >
+                  {link.label}
+                </Link>
               </li>
             ))}
             <li className="pt-2">

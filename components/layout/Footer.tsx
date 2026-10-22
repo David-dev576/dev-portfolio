@@ -34,14 +34,14 @@ export function Footer() {
             </p>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="/#accueil" className="text-fg-secondary hover:text-fg-primary">
+                <Link href="/#accueil" className="text-fg-secondary hover:text-fg-primary">
                   Accueil
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#a-propos" className="text-fg-secondary hover:text-fg-primary">
+                <Link href="/#a-propos" className="text-fg-secondary hover:text-fg-primary">
                   À propos
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/projets" className="text-fg-secondary hover:text-fg-primary">
@@ -49,9 +49,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="/#contact" className="text-fg-secondary hover:text-fg-primary">
+                <Link href="/#contact" className="text-fg-secondary hover:text-fg-primary">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
