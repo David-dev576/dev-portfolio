@@ -4,16 +4,15 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
-import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
 const links = [
-  { href: '/#accueil', label: 'Accueil' },
-  { href: '/#a-propos', label: 'À propos' },
-  { href: '/#competences', label: 'Compétences' },
-  { href: '/projets', label: 'Projets' },
-  { href: '/#parcours', label: 'Parcours' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/dev-portfolio/#accueil', label: 'Accueil' },
+  { href: '/dev-portfolio/#a-propos', label: 'À propos' },
+  { href: '/dev-portfolio/#competences', label: 'Compétences' },
+  { href: '/dev-portfolio/projets', label: 'Projets' }, // Lien de page
+  { href: '/dev-portfolio/#parcours', label: 'Parcours' },
+  { href: '/dev-portfolio/#contact', label: 'Contact' },
 ];
 
 export function Navbar() {
@@ -27,83 +26,67 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [open]);
-
   return (
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-40 transition-all duration-300',
         scrolled
-          ? 'border-b border-border bg-bg-primary/80 backdrop-blur-md'
+          ? 'border-b border-border bg-bg-primary/90 backdrop-blur-md'
           : 'border-b border-transparent bg-transparent'
       )}
     >
-      <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight" aria-label="Retour à l'accueil">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-accent-primary to-accent-secondary text-sm font-bold text-white">
-            D
-          </span>
-          <span className="hidden sm:inline">David</span>
-        </Link>
+      <nav className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-6">
+        <a href="/dev-portfolio/" className="flex items-center gap-2 font-display text-xl font-bold tracking-tight">
+          D.
+        </a>
 
-        {/* Menu Desktop */}
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <li key={link.href}>
-              <Link
+              {/* On utilise <a> pour TOUT, car c'est le plus sûr sur GitHub Pages */}
+              <a
                 href={link.href}
-                className="text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+                className="text-sm font-medium text-fg-secondary transition-colors hover:text-fg-primary"
               >
                 {link.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-6">
           <ThemeToggle />
-          <div className="hidden md:block">
-            <Button href="/#contact" variant="primary">
-              Me contacter
-            </Button>
-          </div>
+          <a
+            href="/dev-portfolio/#contact"
+            className="hidden md:inline-flex text-sm font-medium hover:text-accent-primary transition-colors"
+          >
+            Me contacter
+          </a>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-fg-secondary md:hidden"
-            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
-            aria-expanded={open}
+            className="inline-flex h-10 w-10 items-center justify-center md:hidden"
+            aria-label={open ? 'Fermer' : 'Ouvrir'}
           >
-            {open ? <X size={16} /> : <Menu size={16} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
 
-      {/* Menu Mobile */}
       {open && (
         <div className="border-t border-border bg-bg-primary md:hidden">
           <ul className="flex flex-col px-6 py-4">
             {links.map((link) => (
               <li key={link.href}>
-                <Link
+                <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block py-3 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+                  className="block py-4 text-base font-medium text-fg-secondary hover:text-fg-primary"
                 >
                   {link.label}
-                </Link>
+                </a>
               </li>
             ))}
-            <li className="pt-2">
-              <Button href="/#contact" variant="primary" className="w-full">
-                Me contacter
-              </Button>
-            </li>
           </ul>
         </div>
       )}
