@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { ScrollProgress } from '@/components/layout/ScrollProgress'; // 👈 Ajout de l'import
 import { site } from '@/data/site';
 import './globals.css';
 
@@ -56,6 +57,9 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrains.variable} font-sans`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          {/* 👇 La barre de progression est ajoutée ici */}
+          <ScrollProgress />
+          
           <a
             href="#main"
             className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-bg-card focus:px-4 focus:py-2 focus:text-fg-primary"

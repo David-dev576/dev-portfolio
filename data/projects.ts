@@ -16,21 +16,43 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-    {
-    slug: 'gestion-restaurant',
-    title: 'Site web pour un studio de photographie',
+  {
+    slug: 'portfolio-website',
+    title: 'Portfolio Website',
     shortDescription:
-      'Application permettant de gérer les rendez-vous des clients',
+      'This very site — a lightweight SPA built with vanilla JavaScript, a custom router, and CSS custom properties.',
+    category: 'Frontend',
+    technologies: ['HTML', 'CSS', 'VANILLA JS'],
+    image: '/dev-portfolio/images/projects/portfolio.jpg', // Ajoute une image ici
+    github: 'https://github.com/david-dev576',
+    demo: 'https://david-dev576.github.io/dev-portfolio/',
+    status: 'published',
+  },
+  {
+    slug: 'psag-parish-management',
+    title: 'PSAG Parish Management',
+    shortDescription:
+      'Web application for managing parish activities, users, catechumens, and administration with authentication and role-based access control.',
+    category: 'Fullstack',
+    technologies: ['PHP', 'MYSQL', 'JAVASCRIPT', 'AJAX'],
+    image: '/dev-portfolio/images/projects/psag.jpg', // Ajoute une image ici
+    github: '',
+    demo: '',
+    status: 'in-progress',
+  },
+  {
+    slug: 'gestion-restaurant',
+    title: 'Application de gestion de restaurant',
+    shortDescription:
+      'Application permettant de gérer les commandes, les tables et le menu d’un restaurant.',
     category: 'Fullstack',
     technologies: ['Laravel', 'MySQL', 'Tailwind CSS'],
-    image: '/images/projects/restaurant.jpg',
+    image: '/dev-portfolio/images/projects/restaurant.jpg',
     problem: 'Centraliser la gestion des commandes et du menu dans un seul outil.',
     features: ['Gestion du menu', 'Suivi des commandes', 'Gestion des tables'],
     role: 'Conception et développement',
-    
-    // 👇 MODIFICATIONS ICI
-    github: 'https://github.com/david-dev576', // Mets le lien de ton profil ou de ton dépôt de code ici
-    demo: 'https://david-dev576.github.io/Photographie_site/', // Mets ton lien GitHub Pages ici
+    github: 'https://github.com/david-dev576',
+    demo: '',
     status: 'in-progress',
   },
   {
@@ -40,42 +62,12 @@ export const projects: Project[] = [
       'Plateforme de réservation de chambres et de suivi des séjours.',
     category: 'Fullstack',
     technologies: ['Laravel', 'MySQL', 'Tailwind CSS'],
-    image: '/images/projects/hotel.jpg',
+    image: '/dev-portfolio/images/projects/hotel.jpg',
     problem: 'Simplifier la réservation et le suivi des chambres disponibles.',
     features: ['Réservation en ligne', 'Disponibilité des chambres', 'Tableau de bord admin'],
     role: 'Conception et développement',
     github: '',
     demo: '',
     status: 'in-progress',
-  },
-  {
-    slug: 'gestion-bibliotheque',
-    title: 'Application de gestion de bibliothèque',
-    shortDescription:
-      'Gestion des livres, des emprunts et des retours pour une bibliothèque.',
-    category: 'Fullstack',
-    technologies: ['Laravel', 'MySQL'],
-    image: '/images/projects/library.jpg',
-    problem: 'Automatiser le suivi des emprunts et des retours.',
-    features: ['Catalogue de livres', 'Gestion des emprunts', 'Recherche avancée'],
-    role: 'Conception et développement',
-    github: '',
-    demo: '',
-    status: 'in-progress',
-  },
-  {
-    slug: 'photographie',
-    title: 'Projet de photographie / gestion de données',
-    shortDescription:
-      'Application pour organiser, taguer et explorer une collection de photos.',
-    category: 'Frontend',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-    image: '/images/projects/photography.jpg',
-    problem: 'Organiser et retrouver facilement des photos par mots-clés.',
-    features: ['Galerie filtrable', 'Tags personnalisés', 'Recherche rapide'],
-    role: 'Conception et développement',
-    github: '',
-    demo: '',
-    status: 'draft',
   },
 ];
