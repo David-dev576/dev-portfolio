@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section id="accueil" className="relative min-h-screen flex items-center px-6 pt-20 overflow-hidden">
       
-      {/* Faux code en arrière-plan (Optionnel, pour l'ambiance) */}
+      {/* Faux code en arrière-plan */}
       <div className="absolute top-20 left-6 font-mono text-xs text-border/40 pointer-events-none hidden lg:block">
         &lt;/html&gt;<br />
         &lt;body&gt;
@@ -50,16 +50,19 @@ export function Hero() {
           </Reveal>
         </div>
 
-        {/* Image de droite */}
-        <Reveal delay={0.3} className="relative h-[500px] md:h-[600px] w-full flex items-end justify-center">
-          {/* Cercle de fond */}
-          <div className="absolute bottom-0 w-[400px] h-[400px] md:w-[500px] md:h-[500px] rounded-full bg-border/20 blur-3xl" />
+        {/* Image de droite (Maintenant Ronde) */}
+        <Reveal delay={0.3} className="relative w-full flex items-center justify-center md:justify-end">
+          {/* Cercle de fond (glow) */}
+          <div className="absolute inset-0 m-auto w-[350px] h-[350px] md:w-[450px] md:h-[450px] rounded-full bg-border/20 blur-3xl" />
           
-          <img 
-            src="./images/david.webp" 
-            alt="David" 
-            className="relative z-10 object-contain w-full h-full max-h-[550px] grayscale hover:grayscale-0 transition-all duration-700"
-          />
+          {/* Conteneur circulaire */}
+          <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-2 border-border shadow-2xl">
+            <img 
+              src="./images/david.webp" 
+              alt="David" 
+              className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+            />
+          </div>
         </Reveal>
 
       </div>
