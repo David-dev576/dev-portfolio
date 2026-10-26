@@ -24,7 +24,7 @@ export const projects: Project[] = [
     category: 'Frontend',
     technologies: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
     // 👇 On ajoute /dev-portfolio devant le chemin
-    image: '/dev-portfolio/images/projects/studio-photo.png', 
+   image: '/images/studio-photo.png', 
     problem: "Créer une interface immersive et raffinée pour présenter le travail d'un photographe et permettre aux clients de réserver une séance facilement.",
     features: ['Galerie photos interactive', 'Formulaire de réservation', 'Design éditorial et minimaliste', 'Animations fluides'],
     role: 'Conception UI/UX et Développement Frontend',

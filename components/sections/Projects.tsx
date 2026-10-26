@@ -65,10 +65,11 @@ export function Projects() {
             <Reveal key={p.slug} delay={i * 0.05}>
               <div className="group flex flex-col border border-border bg-bg-secondary transition-colors hover:border-fg-secondary">
                 
-                {/* Image avec fallback intégré */}
+                {/* Image avec fallback et correction du chemin pour GitHub Pages */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-card border-b border-border flex items-center justify-center">
                    <img
-                     src={p.image}
+                     // 👇 On force le chemin à inclure /dev-portfolio
+                     src={`/dev-portfolio${p.image}`}
                      alt={p.title}
                      className="object-cover w-full h-full opacity-80 transition-opacity group-hover:opacity-100 relative z-10"
                      onError={(e) => {
