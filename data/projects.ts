@@ -29,7 +29,7 @@ export const projects: Project[] = [
     features: ['Galerie photos interactive', 'Formulaire de réservation', 'Design éditorial et minimaliste', 'Animations fluides'],
     role: 'Conception UI/UX et Développement Frontend',
     github: '',
-    demo: 'https://david-dev576.github.io/chic-studio/#/',
+    demo: 'https://david-dev576.github.io/chic-studio/',
     status: 'published',
   },
   {
