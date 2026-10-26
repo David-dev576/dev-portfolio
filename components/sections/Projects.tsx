@@ -65,13 +65,21 @@ export function Projects() {
             <Reveal key={p.slug} delay={i * 0.05}>
               <div className="group flex flex-col border border-border bg-bg-secondary transition-colors hover:border-fg-secondary">
                 
-                {/* Image */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-card border-b border-border">
+                {/* Image avec fallback intégré */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-bg-card border-b border-border flex items-center justify-center">
                    <img
                      src={p.image}
                      alt={p.title}
-                     className="object-cover w-full h-full opacity-80 transition-opacity group-hover:opacity-100"
+                     className="object-cover w-full h-full opacity-80 transition-opacity group-hover:opacity-100 relative z-10"
+                     onError={(e) => {
+                       (e.target as HTMLImageElement).style.display = 'none';
+                     }}
                    />
+                   <div className="absolute inset-0 flex items-center justify-center -z-0">
+                     <span className="font-mono text-xs text-fg-secondary uppercase tracking-widest opacity-30">
+                       {p.category} Project
+                     </span>
+                   </div>
                 </div>
 
                 {/* Content */}
