@@ -11,7 +11,6 @@ export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-// 👇 1. On ajoute "async" et on await params
 export async function generateMetadata({
   params,
 }: {
@@ -26,7 +25,6 @@ export async function generateMetadata({
   };
 }
 
-// 👇 2. On ajoute "async" et on await params
 export default async function ProjectPage({
   params,
 }: {
@@ -37,6 +35,7 @@ export default async function ProjectPage({
 
   if (!project) {
     notFound();
+    return null;
   }
 
   const sections = [
@@ -46,12 +45,12 @@ export default async function ProjectPage({
 
   return (
     <Section className="pt-32">
-    <Link
-  href="/projets"
-  className="mb-8 inline-flex items-center gap-2 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
->
-  <ArrowLeft size={14} /> Tous les projets
-</Link>
+      <Link
+        href="/projets"
+        className="mb-8 inline-flex items-center gap-2 text-sm text-fg-secondary transition-colors hover:text-fg-primary"
+      >
+        <ArrowLeft size={14} /> Tous les projets
+      </Link>
 
       <div className="mb-4 flex flex-wrap items-center gap-3">
         <Badge>{project.category}</Badge>
@@ -70,7 +69,6 @@ export default async function ProjectPage({
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">
-        {/* 👇 J'ai ajouté target blank pour que le lien GitHub s'ouvre dans un nouvel onglet */}
         {project.github ? (
           <Button href={project.github} variant="outline">
             <Code2 size={16} /> Code source
@@ -89,6 +87,15 @@ export default async function ProjectPage({
             <ExternalLink size={16} /> Démo à venir
           </span>
         )}
+      </div>
+
+      {/* 👇 Ajout de l'image principale du projet 👇 */}
+      <div className="mt-12 relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-bg-card">
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          className="w-full h-full object-cover"
+        />
       </div>
 
       <div className="mt-16 grid gap-12 md:grid-cols-3">
@@ -117,15 +124,6 @@ export default async function ProjectPage({
               </ul>
             </div>
           )}
-
-          <div>
-            <h2 className="font-display text-xl font-semibold">
-              Captures d'écran
-            </h2>
-            <p className="mt-2 text-sm text-fg-secondary">
-              Les visuels de ce projet seront ajoutés prochainement.
-            </p>
-          </div>
         </div>
 
         <aside className="md:col-span-1">
