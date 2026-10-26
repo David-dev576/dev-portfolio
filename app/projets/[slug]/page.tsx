@@ -89,14 +89,20 @@ export default async function ProjectPage({
         )}
       </div>
 
-      {/* 👇 Ajout de l'image principale du projet 👇 */}
-      <div className="mt-12 relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-bg-card">
-        <img 
-          src={project.image} 
-          alt={project.title} 
-          className="w-full h-full object-cover"
-        />
-      </div>
+      {/* 👇 Image principale du projet (corrigée pour GitHub Pages) 👇 */}
+      {project.image && (
+        <div className="mt-12 relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-bg-card">
+          <img 
+            // Ajout du sous-dossier /dev-portfolio
+            src={`/dev-portfolio${project.image}`} 
+            alt={project.title} 
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = 'none';
+            }}
+          />
+        </div>
+      )}
 
       <div className="mt-16 grid gap-12 md:grid-cols-3">
         <div className="space-y-8 md:col-span-2">
